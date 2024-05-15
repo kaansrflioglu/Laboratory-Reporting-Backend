@@ -1,8 +1,5 @@
 package com.kaansrflioglu.labreportingapp.entities;
 
-
-
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -15,15 +12,15 @@ import lombok.Data;
 public class Inpatients {
 
     @Id
-    @Column(name = "TC")
+    @Column(name = "inpatients_tc")
     private String tc;
 
-    @Column(name = "name")
+    @Column(name = "inpatients_name")
     private String name;
 
-    @Column(name = "surname")
+    @Column(name = "inpatients_surname")
     private String surname;
 
-    @Column(name = "age")
+    @Column(name = "inpatients_age")
     private int age;
 }

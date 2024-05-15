@@ -78,7 +78,7 @@ public class DataLoader implements CommandLineRunner {
             if (count == 0) {
                 Cities city = new Cities();
                 city.setName(cityName);
-                city.setCountyID(cityPlateCode);
+                city.setCityID(cityPlateCode);
                 entityManager.persist(city);
             }
         }

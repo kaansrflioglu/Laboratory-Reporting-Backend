@@ -11,18 +11,18 @@ import jakarta.persistence.Table;
 public class Cities {
 
     @Id
-    @Column(name = "countyID")
-    private int countyID;
+    @Column(name = "city_id")
+    private int cityID;
 
-    @Column(name = "name")
+    @Column(name = "city_name")
     private String name;
 
-    public int getCountyID() {
-        return countyID;
+    public int getCityID() {
+        return cityID;
     }
 
-    public void setCountyID(int countyID) {
-        this.countyID = countyID;
+    public void setCityID(int countyID) {
+        this.cityID = countyID;
     }
 
     public String getName() {

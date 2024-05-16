@@ -26,32 +26,27 @@ public class Report {
 
     @Column(name = "report_date")
     private Date date;
-
-    @ManyToOne
-    @JoinColumn(name = "report_inpatients_tc", referencedColumnName = "inpatients_tc")
-    private Inpatient inpatiens;
     
     @ManyToOne
     @JoinColumn(name = "report_technician_id", referencedColumnName = "technician_id")
     private LaboratoryTechnician technician;
     
     @ManyToOne
-    @JoinColumn(name = "report_hospital_id", referencedColumnName = "city_id")
-    private Cities city;
+    @JoinColumn(name = "report_hospital_id", referencedColumnName = "hospital_id")
+    private Hospitals hospital;
     
     @ManyToOne
     @JoinColumn(name = "report_diagnosis_id", referencedColumnName = "diagnosis_id")
     private Diagnosis diagnosis;
 
 	public Report(Long id, String description, Date date, Inpatient inpatiens, LaboratoryTechnician technician,
-			Cities city, Diagnosis diagnosis) {
+			Hospitals hospital, Diagnosis diagnosis) {
 		super();
 		this.id = id;
 		this.description = description;
 		this.date = date;
-		this.inpatiens = inpatiens;
 		this.technician = technician;
-		this.city = city;
+		this.hospital = hospital;
 		this.diagnosis = diagnosis;
 	}
 
@@ -79,14 +74,6 @@ public class Report {
 		this.date = date;
 	}
 
-	public Inpatient getInpatiens() {
-		return inpatiens;
-	}
-
-	public void setInpatiens(Inpatient inpatiens) {
-		this.inpatiens = inpatiens;
-	}
-
 	public LaboratoryTechnician getTechnician() {
 		return technician;
 	}
@@ -95,12 +82,12 @@ public class Report {
 		this.technician = technician;
 	}
 
-	public Cities getHospital() {
-		return city;
+	public Hospitals getHospital() {
+		return hospital;
 	}
 
-	public void setHospital(Cities city) {
-		this.city = city;
+	public void setHospital(Hospitals hospital) {
+		this.hospital = hospital;
 	}
 
 	public Diagnosis getDiagnosis() {

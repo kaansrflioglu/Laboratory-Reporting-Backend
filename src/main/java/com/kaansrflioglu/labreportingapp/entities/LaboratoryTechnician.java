@@ -29,4 +29,55 @@ public class LaboratoryTechnician {
 
     @Column(name = "technician_surname")
     private String lastName;
+
+	public LaboratoryTechnician(Long id, String tc, int age, String firstName, String lastName) {
+		super();
+		this.id = id;
+		this.tc = tc;
+		this.age = age;
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getTc() {
+		return tc;
+	}
+
+	public void setTc(String tc) {
+		this.tc = tc;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+    
+    public LaboratoryTechnician() {}
 }

@@ -16,8 +16,14 @@ public class Cities {
 
     @Column(name = "city_name")
     private String name;
+    
+    public Cities(int cityID, String name) {
+		super();
+		this.cityID = cityID;
+		this.name = name;
+	}
 
-    public int getCityID() {
+	public int getCityID() {
         return cityID;
     }
 
@@ -32,4 +38,6 @@ public class Cities {
     public void setName(String name) {
         this.name = name;
     }
+    
+    public Cities() {}
 }

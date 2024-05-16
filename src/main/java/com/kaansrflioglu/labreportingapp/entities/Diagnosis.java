@@ -28,5 +28,47 @@ public class Diagnosis {
 
     @ManyToOne
     @JoinColumn(name = "diagnosis_tc", referencedColumnName = "inpatients_tc")
-    private Inpatients inpatient;
+    private Inpatient inpatient;
+
+	public Diagnosis(Long id, String diagnosisTitle, String diagnosisDetails, Inpatient inpatient) {
+		super();
+		this.id = id;
+		this.diagnosisTitle = diagnosisTitle;
+		this.diagnosisDetails = diagnosisDetails;
+		this.inpatient = inpatient;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getDiagnosisTitle() {
+		return diagnosisTitle;
+	}
+
+	public void setDiagnosisTitle(String diagnosisTitle) {
+		this.diagnosisTitle = diagnosisTitle;
+	}
+
+	public String getDiagnosisDetails() {
+		return diagnosisDetails;
+	}
+
+	public void setDiagnosisDetails(String diagnosisDetails) {
+		this.diagnosisDetails = diagnosisDetails;
+	}
+
+	public Inpatient getInpatient() {
+		return inpatient;
+	}
+
+	public void setInpatient(Inpatient inpatient) {
+		this.inpatient = inpatient;
+	}
+    
+    public Diagnosis() {}
 }

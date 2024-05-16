@@ -29,10 +29,21 @@ public class InpatientsManager implements IInpatientsService {
 	@Override
 	@Transactional
 	public void add(Inpatient inpatient) {
-		//ekleme koşulları
-		this.inpatientsDAL.add(inpatient);
-		
+	    if (isValidTc(inpatient.getTc()) && isValidAge(inpatient.getAge())) {
+	        this.inpatientsDAL.add(inpatient);
+	    } else {
+	        throw new IllegalArgumentException("TC kimlik numarası 11 haneli olmalı ve yaş değeri 0'dan büyük olmalıdır.");
+	    }
 	}
+
+	private boolean isValidTc(String tc) {
+	    return tc != null && tc.length() == 11;
+	}
+
+	private boolean isValidAge(int age) {
+	    return age > 0;
+	}
+
 
 	@Override
 	@Transactional

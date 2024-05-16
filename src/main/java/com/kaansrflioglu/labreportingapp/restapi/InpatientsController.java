@@ -13,7 +13,7 @@ import java.util.List;
 import com.kaansrflioglu.labreportingapp.business.IInpatientsService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/inpatientApi")
 public class InpatientsController {
     private final IInpatientsService inpatientsService;
 

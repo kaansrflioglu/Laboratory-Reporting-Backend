@@ -36,22 +36,22 @@ public class Report {
     private LaboratoryTechnician technician;
     
     @ManyToOne
-    @JoinColumn(name = "report_hospital_id", referencedColumnName = "hospital_city_id")
-    private Hospitals hospital;
+    @JoinColumn(name = "report_hospital_id", referencedColumnName = "city_id")
+    private Cities city;
     
     @ManyToOne
     @JoinColumn(name = "report_diagnosis_id", referencedColumnName = "diagnosis_id")
     private Diagnosis diagnosis;
 
 	public Report(Long id, String description, Date date, Inpatient inpatiens, LaboratoryTechnician technician,
-			Hospitals hospital, Diagnosis diagnosis) {
+			Cities city, Diagnosis diagnosis) {
 		super();
 		this.id = id;
 		this.description = description;
 		this.date = date;
 		this.inpatiens = inpatiens;
 		this.technician = technician;
-		this.hospital = hospital;
+		this.city = city;
 		this.diagnosis = diagnosis;
 	}
 
@@ -95,12 +95,12 @@ public class Report {
 		this.technician = technician;
 	}
 
-	public Hospitals getHospital() {
-		return hospital;
+	public Cities getHospital() {
+		return city;
 	}
 
-	public void setHospital(Hospitals hospital) {
-		this.hospital = hospital;
+	public void setHospital(Cities city) {
+		this.city = city;
 	}
 
 	public Diagnosis getDiagnosis() {

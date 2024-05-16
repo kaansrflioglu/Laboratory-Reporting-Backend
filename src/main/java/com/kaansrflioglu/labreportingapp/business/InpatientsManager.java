@@ -29,22 +29,29 @@ public class InpatientsManager implements IInpatientsService {
 	@Override
 	@Transactional
 	public void add(Inpatient inpatient) {
-		// TODO Auto-generated method stub
+		//ekleme koşulları
+		this.inpatientsDAL.add(inpatient);
 		
 	}
 
 	@Override
 	@Transactional
 	public void update(Inpatient inpatient) {
-		// TODO Auto-generated method stub
+		this.inpatientsDAL.update(inpatient);
 		
 	}
 
 	@Override
 	@Transactional
 	public void delete(Inpatient inpatient) {
-		// TODO Auto-generated method stub
+		this.inpatientsDAL.delete(inpatient);
 		
+	}
+
+	@Override
+	@Transactional
+	public Inpatient getById(String id) {
+		return this.inpatientsDAL.getById(id);
 	}
 
 }

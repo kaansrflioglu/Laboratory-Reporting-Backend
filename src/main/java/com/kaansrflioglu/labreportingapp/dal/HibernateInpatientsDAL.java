@@ -46,4 +46,12 @@ public class HibernateInpatientsDAL implements IInpatientsDAL {
     public void delete(Inpatient inpatient) {
         entityManager.remove(entityManager.contains(inpatient) ? inpatient : entityManager.merge(inpatient));
     }
+
+    @Override
+    @Transactional
+    public Inpatient getById(String id) {
+        Session session = entityManager.unwrap(Session.class);
+        return session.get(Inpatient.class, id);
+    }
+
 }

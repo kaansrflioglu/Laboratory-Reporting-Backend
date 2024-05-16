@@ -8,5 +8,6 @@ public interface IInpatientsDAL {
 	void add(Inpatient inpatient);
 	void update(Inpatient inpatient);
 	void delete(Inpatient inpatient);
+	Inpatient getById(String id);
 
 }

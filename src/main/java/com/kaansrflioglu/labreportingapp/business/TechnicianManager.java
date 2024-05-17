@@ -65,4 +65,14 @@ public class TechnicianManager implements ITechnicianService {
 		return this.technicianDAL.getById(id);
 	}
 
+	@Override
+	public LaboratoryTechnician getByName(String name) {
+		return this.technicianDAL.getByName(name);
+	}
+
+	@Override
+	public LaboratoryTechnician getBySurname(String surname) {
+		return this.technicianDAL.getBySurname(surname);
+	}
+
 }

@@ -52,4 +52,28 @@ public class ReportManager implements IReportService {
 		return this.reportDAL.getById(id);
 	}
 
+	@Override
+	@Transactional
+	public List<Report> getAllByDateDesc() {
+		return this.reportDAL.getAllByDateDesc();
+	}
+
+	@Override
+	@Transactional
+	public List<Report> getAllByDateAsc() {
+		return this.reportDAL.getAllByDateAsc();
+	}
+
+	@Override
+	@Transactional
+	public List<Report> getIdByDateDesc(String id) {
+		return this.reportDAL.getIdByDateDesc(id);
+	}
+
+	@Override
+	@Transactional
+	public List<Report> getIdByDateAsc(String id) {
+		return this.reportDAL.getIdByDateAsc(id);
+	}
+
 }

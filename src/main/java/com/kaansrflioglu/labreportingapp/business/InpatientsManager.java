@@ -65,4 +65,14 @@ public class InpatientsManager implements IInpatientsService {
 		return this.inpatientsDAL.getById(id);
 	}
 
+	@Override
+	public Inpatient getByName(String name) {
+		return this.inpatientsDAL.getByName(name);
+	}
+
+	@Override
+	public Inpatient getBySurname(String surname) {
+		return this.inpatientsDAL.getBySurname(surname);
+	}
+
 }

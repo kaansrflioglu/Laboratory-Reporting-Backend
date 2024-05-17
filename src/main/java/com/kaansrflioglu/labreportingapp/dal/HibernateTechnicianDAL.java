@@ -3,10 +3,12 @@ package com.kaansrflioglu.labreportingapp.dal;
 import java.util.List;
 
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.kaansrflioglu.labreportingapp.entities.Inpatient;
 import com.kaansrflioglu.labreportingapp.entities.LaboratoryTechnician;
 
 import jakarta.persistence.EntityManager;
@@ -53,5 +55,26 @@ public class HibernateTechnicianDAL implements ITechnicianDAL {
         Session session = entityManager.unwrap(Session.class);
         return session.get(LaboratoryTechnician.class, id);
     }
+
+    @Override
+    @Transactional
+    public LaboratoryTechnician getByName(String name) {
+        Session session = entityManager.unwrap(Session.class);
+        String hql = "FROM LaboratoryTechnician WHERE firstName = :firstName";
+        Query<LaboratoryTechnician> query = session.createQuery(hql, LaboratoryTechnician.class);
+        query.setParameter("firstName", name);
+        return query.uniqueResult();
+    }
+
+	@Override
+	@Transactional
+	public LaboratoryTechnician getBySurname(String surname) {
+		Session session = entityManager.unwrap(Session.class);
+        String hql = "FROM LaboratoryTechnician WHERE lastName = :lastName";
+        Query<LaboratoryTechnician> query = session.createQuery(hql, LaboratoryTechnician.class);
+        query.setParameter("lastName", surname);
+        return query.uniqueResult();
+	}
+
 
 }

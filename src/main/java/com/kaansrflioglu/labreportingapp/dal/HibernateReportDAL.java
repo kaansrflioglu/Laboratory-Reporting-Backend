@@ -54,4 +54,56 @@ public class HibernateReportDAL implements IReportDAL {
         return session.get(Report.class, id);
     }
 
+	@Override
+	@Transactional
+	public List<Report> getAllByDateDesc() {
+        Session session = entityManager.unwrap(Session.class);
+        List<Report> report = session.createQuery("from Report order by date desc", Report.class).getResultList();
+        return report;
+	}
+
+	@Override
+	@Transactional
+	public List<Report> getAllByDateAsc() {
+		Session session = entityManager.unwrap(Session.class);
+        List<Report> report = session.createQuery("from Report order by date asc", Report.class).getResultList();
+        return report;
+	}
+
+	@Override
+	@Transactional
+	public List<Report> getIdByDateDesc(String id) {
+		Session session = entityManager.unwrap(Session.class);
+	    
+	    String hql = "select r from Report r "
+	               + "join r.diagnosis d "
+	               + "join d.inpatient i "
+	               + "where i.tc = :tc "
+	               + "order by r.date desc";
+	    
+	    List<Report> reports = session.createQuery(hql, Report.class)
+	                                  .setParameter("tc", id)
+	                                  .getResultList();
+	    
+	    return reports;
+	}
+
+	@Override
+	@Transactional
+	public List<Report> getIdByDateAsc(String id) {
+		Session session = entityManager.unwrap(Session.class);
+	    
+	    String hql = "select r from Report r "
+	               + "join r.diagnosis d "
+	               + "join d.inpatient i "
+	               + "where i.tc = :tc "
+	               + "order by r.date asc";
+	    
+	    List<Report> reports = session.createQuery(hql, Report.class)
+	                                  .setParameter("tc", id)
+	                                  .getResultList();
+	    
+	    return reports;
+	}
+
 }

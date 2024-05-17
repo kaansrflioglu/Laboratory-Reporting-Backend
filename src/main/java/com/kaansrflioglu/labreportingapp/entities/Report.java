@@ -7,6 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import lombok.Data;
 import java.util.Date;
@@ -98,5 +99,12 @@ public class Report {
 		this.diagnosis = diagnosis;
 	}
     
+	@PrePersist
+    protected void onCreate() {
+        if (this.date == null) {
+            this.date = new Date();
+        }
+    }
+	
    public Report() {}
 }

@@ -9,4 +9,6 @@ public interface ITechnicianService {
 	void update(LaboratoryTechnician technician);
 	void delete(LaboratoryTechnician technician);
 	LaboratoryTechnician getById(Long id);
+	LaboratoryTechnician getByName(String name);
+	LaboratoryTechnician getBySurname(String surname);
 }
